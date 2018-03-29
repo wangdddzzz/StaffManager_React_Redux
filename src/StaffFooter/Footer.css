@@ -1,0 +1,51 @@
+.footerBox {
+    margin-top:40px;
+    padding-bottom: 50px;
+    width: 100%;
+}
+
+.footerBox h4 {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.footerBox form {
+    text-align: center;
+}
+
+.footerBox form label{
+    display: block;
+}
+
+.footerBox form div{
+    margin-top: 10px;
+}
+
+.footerBox form select ,
+.footerBox form input{
+    width: 170px;
+    height: 20px;
+}
+
+.footerBox form p {
+    display: none;
+}
+
+.footerBox form button{
+    width: 70px;
+    height: 30px;
+    font-weight: bold;
+    color: #000;
+    background-color: #ccc;
+    border-radius: 5px;
+}
+
+#staffAddDescrip{
+    overflow-x:hidden;
+}
+
+label{
+    margin-bottom: 3px;
+}

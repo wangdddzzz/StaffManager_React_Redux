@@ -1,0 +1,16 @@
+.headerBox {
+    margin: 0px auto;
+    width: 100%;
+}
+
+.headerBox h3 {
+    text-align: center;
+}
+
+.headerBox .optHeader {
+    width: 100%;
+}
+
+label{
+    margin-right: 10px;
+}
