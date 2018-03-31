@@ -37,8 +37,6 @@ class StaffDetail extends Component {
             let tips = this.refs.DtipsUnAge;
             $(tips).fadeIn(1000);
             setTimeout(() => $(tips).fadeOut(1000),1000);
-            // tips.style.display = 'block';
-            // setTimeout(() => tips.style.display = 'none', 1000);
             return false;
         }
 
@@ -49,14 +47,11 @@ class StaffDetail extends Component {
         let tips = this.refs.Dtips;
         $(tips).fadeIn(1000);
         setTimeout(() => $(tips).fadeOut(1000),1000);
-        // tips.style.display = 'block';
-        // setTimeout(() => tips.style.display = 'none', 1000);
         return false;
     }
 
     //关闭按钮响应函数
     closeBtn () {
-        document.getElementById('contentBox').style.opacity = 1;
         //回调函数
         this.props.closeBox();
     }
@@ -65,7 +60,6 @@ class StaffDetail extends Component {
         if(!this.props.staffDetail){
             return;
         }
-        // console.log(this.props.staffDetail);
         let staffDetail = this.props.staffDetail;
         let sex = document.querySelector('#staffEditSex');
         let id = document.querySelector('#staffEditId');
@@ -75,7 +69,6 @@ class StaffDetail extends Component {
 
     render() {
         let staffDetail = this.props.staffDetail;
-        // console.log(staffDetail);
         if (!staffDetail) {
             return null;
         }

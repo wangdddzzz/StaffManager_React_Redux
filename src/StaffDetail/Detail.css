@@ -5,8 +5,9 @@
     top: 200px;
     width: 500px;
     z-index: 10;
-    background-color: #8c8c8c;
+    background-color: rgba(140, 140, 140, 0.8);
     border-radius: 10px;
+    animation: showDetail 1.5s;
 }
 
 .detailBox table{

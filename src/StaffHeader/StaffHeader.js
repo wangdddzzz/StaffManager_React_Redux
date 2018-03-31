@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import ReactDOM, { render } from 'react-dom';
 import Store from '../Store';
 import mapDispatchToProps from './Header_mapToProps';
@@ -18,7 +18,7 @@ class StaffHeader extends Component {
 
   //身份框onChange响应函数
   idSearch() {
-    let index = ['','主任','老师','学生','实习']
+    let index = ['', '主任', '老师', '学生', '实习']
     let select = document.querySelector('#idSelect');
     let value = select.options[select.selectedIndex].value;
     //回调函数
@@ -41,7 +41,7 @@ class StaffHeader extends Component {
         <table className='optHeader'>
           <tbody>
             <tr>
-              <td className='headerTd'><input ref='searchBar' type="text" placeholder='Search...' onChange={this.descripSearch.bind(this)}/></td>
+              <td className='headerTd'><input ref='searchBar' type="text" placeholder='Search...' onChange={this.descripSearch.bind(this)} /></td>
               <td className='headerTd'>
                 <label htmlFor="idSelect">人员筛选 </label>
                 <select id="idSelect" onChange={this.idSearch.bind(this)}>
@@ -68,6 +68,6 @@ class StaffHeader extends Component {
   }
 }
 
-StaffHeader = connect(null,mapDispatchToProps)(StaffHeader);
+StaffHeader = connect(null, mapDispatchToProps)(StaffHeader);
 
 export default StaffHeader

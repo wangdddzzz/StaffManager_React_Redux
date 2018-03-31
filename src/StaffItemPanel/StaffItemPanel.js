@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import StaffItem from './StaffItem/StaffItem';
-import {mapStateToProps} from './Panel_mapToProps';
-import {connect} from 'react-redux';
+import { mapStateToProps } from './Panel_mapToProps';
+import { connect } from 'react-redux';
 require('./Panel.css');
 
 class StaffItemPanel extends Component {
-    render () {
-            let items = [];
-            if(this.props.items.length === 0){
-                items.push(<tr><th colSpan='5' className='tempEmpty'>暂无用户</th></tr>);
-            }else{
-                this.props.items.forEach(item => {
-                    items.push(<StaffItem key={item.key} item={item}/>)
-                })
-            }
+    render() {
+        let items = [];
+        if (this.props.items.length === 0) {
+            items.push(<tr><th colSpan='5' className='tempEmpty'>暂无用户</th></tr>);
+        } else {
+            this.props.items.forEach(item => {
+                items.push(<StaffItem key={item.key} item={item} />)
+            })
+        }
         return (
             <table className='itemPanel'>
                 <thead>

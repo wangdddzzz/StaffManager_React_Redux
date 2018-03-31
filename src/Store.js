@@ -1,9 +1,12 @@
 import { createStore } from 'redux';
 import Staff from './STAFF';
+import $ from 'jquery';
 
 const initialState = {
     Staff: new Staff(),
     staffDetail: null,
+    login: false,
+    password: 'wangdi',
 }
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +27,7 @@ const reducer = (state = initialState, action) => {
             state.Staff.addStaffItem(action.data);
             return { ...state, Staff: state.Staff };
         case 'closeBox':
+            $('#contentBox').removeClass('hide');
             state.Staff.staffDetail = null;
             return { ...state, Staff: state.Staff };
         case 'editStaffItem':
@@ -34,11 +38,20 @@ const reducer = (state = initialState, action) => {
             state.Staff.removeItem(action.data);
             return { ...state, Staff: state.Staff };
         case 'showDetail':
-            document.getElementById('contentBox').style.opacity = '0.2';
+            $('#contentBox').addClass('hide');
             state.Staff.staffDetail = state.Staff.staff.filter(item => {
                 return item.key == action.data;
             })[0]
             return { ...state, Staff: state.Staff };
+        case 'login':
+            if(state.password == action.data){
+                state.login = true;
+                $('#lock').addClass('zoomOutDown');
+                setTimeout(() => $('#container').css({'z-index':1}), 1500);
+            }else{
+                $('#login input').val('').addClass('bounce').attr('placeholder','密码错误');
+            }
+            return {...state, login : state.login};
         default:
             return state;
     }
