@@ -1,34 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ReactDOM, { render } from 'react-dom';
-import Store from '../Store';
 import mapDispatchToProps from './Header_mapToProps';
+import $ from 'jquery';
 require('./Header.css');
 
 class StaffHeader extends Component {
 
   //搜索框onChange响应函数
   descripSearch() {
-    let bar = ReactDOM.findDOMNode(this.refs.searchBar);
-    let value = bar.value;
+    let bar = this.refs.searchBar;
     //回调函数
-    // this.props.searchStaffDescrip(value);
-    this.props.descripSearch(value);
+    this.props.descripSearch(bar.value);
   }
 
   //身份框onChange响应函数
   idSearch() {
     let index = ['', '主任', '老师', '学生', '实习']
-    let select = document.querySelector('#idSelect');
-    let value = select.options[select.selectedIndex].value;
+    let $select = $('#idSelect');
+    let value = $select.val();
     //回调函数
     this.props.idSearch(index[value]);
   }
 
   //排序框onChange响应函数
   orderSearch() {
-    let select = document.querySelector('#orderSelect');
-    let value = select.options[select.selectedIndex].value;
+    let value = $('#orderSelect').val();
     //回调函数
     this.props.orderSearch(value);
   }

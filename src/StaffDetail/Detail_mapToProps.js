@@ -1,4 +1,3 @@
-// import staffDetail from './StaffDetail';
 
 function editStaffItem (text) {
     return {

@@ -17,11 +17,13 @@ class StaffItemPanel extends Component {
         return (
             <table className='itemPanel'>
                 <thead>
-                    <th className='itemTd'>姓名</th>
-                    <th className='itemTd'>年龄</th>
-                    <th className='itemTd'>身份</th>
-                    <th className='itemTd'>性别</th>
-                    <th className='itemTd'>操作</th>
+                    <tr>
+                        <th className='itemTd' width='18%'>姓名</th>
+                        <th className='itemTd' width='18%'>年龄</th>
+                        <th className='itemTd' width='18%'>身份</th>
+                        <th className='itemTd' width='18%'>性别</th>
+                        <th className='itemTd' width='28%'>操作</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {items}

@@ -13,12 +13,6 @@ function showDetail(text){
     }
 }
 
-// export const mapStateToProps = (state) => {
-//     return {
-//         item: state.item,
-//     }
-// }
-
 export const mapDispatchToProps = (dispatch) => {
     return {
         removeItem: (value) => dispatch(removeItem(value)),

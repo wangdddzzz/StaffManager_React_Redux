@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {mapStateToProps, mapDispatchToProps} from './Item_mapToProps';
+import {mapDispatchToProps} from './Item_mapToProps';
 import {connect} from 'react-redux';
 require('./Item.css');
 
@@ -19,11 +19,11 @@ class StaffItem extends Component {
     render() {
         return (
             <tr style={{'cursor':'pointer'}}>
-                <td className='itemTd'>{this.props.item.info.name}</td>
-                <td className='itemTd'>{this.props.item.info.age}</td>
-                <td className='itemTd'>{this.props.item.info.id}</td>
-                <td className='itemTd'>{this.props.item.info.sex}</td>
-                <td className='itemTd'>
+                <td className='itemTd' width='18%'>{this.props.item.info.name}</td>
+                <td className='itemTd' width='18%'>{this.props.item.info.age}</td>
+                <td className='itemTd' width='18%'>{this.props.item.info.id}</td>
+                <td className='itemTd' width='18%'>{this.props.item.info.sex}</td>
+                <td className='itemTd' width='28%'>
                     <a className='itemBtn' onClick={this.removeItem.bind(this)}>删除</a>
                     <a className="itemBtn" onClick={this.showDetail.bind(this)}>详情</a>
                 </td>

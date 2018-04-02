@@ -1,3 +1,4 @@
+//Action Creators
 function descripSearch(text){
     return {
       type:'descripSearch',

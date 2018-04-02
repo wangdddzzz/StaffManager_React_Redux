@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Provider, connect } from 'react-redux';
+import { connect } from 'react-redux';
 import mapDispatchToProps from './Login_mapToProps';
-import Store from '../Store';
 require('./LoginBox.css');
 
 class LoginBox extends Component {
 
     login () {
         let input = this.refs.input;
-        let password = input.value;
-        this.props.login(password);
+        this.props.login(input.value);
     }
 
     render() {

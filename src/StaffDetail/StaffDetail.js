@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import {mapStateToProps, mapDispatchToProps} from './Detail_mapToProps';
 import $ from 'jquery';
@@ -12,14 +11,15 @@ class StaffDetail extends Component {
     changeBtn(e) {
         e.preventDefault();
         let item = {};
-        let sex = document.querySelector('#staffEditSex');
-        let id = document.querySelector('#staffEditId');
 
-        item.name = document.querySelector('#staffEditName').value.trim();
-        item.age = document.querySelector('#staffEditAge').value.trim();
-        item.descrip = document.querySelector('#staffEditDescrip').value.trim();
-        item.sex = sex.options[sex.selectedIndex].value;
-        item.id = id.options[id.selectedIndex].value;
+        let $sex = $('#staffEditSex');
+        let $id = $('#staffEditId');
+        
+        item.name = $('#staffEditName').val().trim();
+        item.age = $('#staffEditAge').val().trim();
+        item.descrip = $('#staffEditDescrip').val().trim();
+        item.sex = $sex.val();
+        item.id = $id.val();
         item.key = this.props.staffDetail.key;
 
         //表单验证
@@ -27,8 +27,6 @@ class StaffDetail extends Component {
             let tips = this.refs.DtipsUnDone;
             $(tips).fadeIn(1000);
             setTimeout(() => $(tips).fadeOut(1000),1000);
-            // tips.style.display = 'block';
-            // setTimeout(() => tips.style.display = 'none', 1000);
             return false;
         }
 
@@ -56,17 +54,6 @@ class StaffDetail extends Component {
         this.props.closeBox();
     }
 
-    componentDidUpdate() {
-        if(!this.props.staffDetail){
-            return;
-        }
-        let staffDetail = this.props.staffDetail;
-        let sex = document.querySelector('#staffEditSex');
-        let id = document.querySelector('#staffEditId');
-        sex.value = staffDetail.info.sex;
-        id.value = staffDetail.info.id;
-    }
-
     render() {
         let staffDetail = this.props.staffDetail;
         if (!staffDetail) {
@@ -88,7 +75,7 @@ class StaffDetail extends Component {
                         <tr>
                             <th>性别</th>
                             <td>
-                                <select ref='selSex' id='staffEditSex'>
+                                <select ref='selSex' id='staffEditSex' value={staffDetail.info.sex}>
                                     <option value="男">男</option>
                                     <option value="女">女</option>
                                 </select>
@@ -97,7 +84,7 @@ class StaffDetail extends Component {
                         <tr>
                             <th>身份</th>
                             <td>
-                                <select ref="selId" id='staffEditId'>
+                                <select ref="selId" id='staffEditId' value={staffDetail.info.id}>
                                     <option value="主任">主任</option>
                                     <option value="老师">老师</option>
                                     <option value="学生">学生</option>

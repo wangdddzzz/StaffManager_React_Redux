@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {connect} from 'react-redux';
 import mapDispatchToProps from './Footer_mapToProps';
 import $ from 'jquery';
@@ -11,42 +10,41 @@ class StaffFooter extends React.Component {
     handlerAddClick(e){
         e.preventDefault();
         let item = {};
-        let addForm = ReactDOM.findDOMNode(this.refs.addForm);    //返回实际的DOM元素
-        let sex = addForm.querySelector('#staffAddSex');
-        let id = addForm.querySelector('#staffAddId');
-
-        item.name = addForm.querySelector('#staffAddName').value.trim();
-        item.age = addForm.querySelector('#staffAddAge').value.trim();
-        item.descrip = addForm.querySelector('#staffAddDescrip').value.trim();
-        item.sex = sex.options[sex.selectedIndex].value;
-        item.id = id.options[id.selectedIndex].value;
+        let addForm = this.refs.addForm;    //返回实际的DOM元素
+        let $sex = $('#staffAddSex');
+        let $id = $('#staffAddId');
+        
+        item.name = $('#staffAddName').val().trim();
+        item.age = $('#staffAddAge').val().trim();
+        item.descrip = $('#staffAddDescrip').val().trim();
+        item.sex = $sex.val();
+        item.id = $id.val();
 
         //表单验证
         if(item.name === '' || item.age === '' || item.descrip === ''){
-            let tips = ReactDOM.findDOMNode(this.refs.tipsUnDone);
+            let tips = this.refs.tipsUnDone;
             $(tips).fadeIn(1000);
             setTimeout(() => $(tips).fadeOut(1000), 1000);
-            // tips.style.display = 'block';
-            // setTimeout(() => tips.style.display = 'none', 1000);
             return false;
         }
         let numReg = /^\d+$/;
         if(!numReg.test(item.age) || parseInt(item.age,10) > 150){
-            let tips = ReactDOM.findDOMNode(this.refs.tipsUnAge);
-            tips.style.display = 'block';
-            setTimeout(() => tips.style.display = 'none', 1000);
+            let tips = this.refs.tipsUnAge;
+            $(tips).fadeIn(1000);
+            setTimeout(() => {
+                $(tips).fadeOut(1000);
+            }, 1000);
             return false;
         }
 
         //回调函数
-        // this.props.addStaffItem(item);
         this.props.addStaffItem(item);
         addForm.reset();
 
         //提交成功
-        let tips = ReactDOM.findDOMNode(this.refs.tips);
-        tips.style.display = 'block';
-        setTimeout(() => tips.style.display = 'none', 1000);
+        let tips = this.refs.tips;
+        $(tips).fadeIn(1000);
+        setTimeout(() => { $(tips).fadeOut(1000)},1000);
         return false;
     }
 
